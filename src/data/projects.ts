@@ -19,7 +19,7 @@ export interface Project {
 }
 
 export const projectsData: Project[] = [
-	{
+	/*{
 		id: "mizuki-blog",
 		title: "Mizuki Blog Theme",
 		description:
@@ -91,7 +91,7 @@ export const projectsData: Project[] = [
 		status: "planned",
 		startDate: "2024-07-01",
 		tags: ["E-commerce", "Full Stack", "Payment Integration"],
-	},
+	},*/
 ];
 
 // Get project statistics

@@ -24,7 +24,7 @@ export interface TimelineItem {
 }
 
 export const timelineData: TimelineItem[] = [
-	{
+	/*{
 		id: "current-study",
 		title: "Studying Computer Science and Technology",
 		description:
@@ -205,7 +205,7 @@ export const timelineData: TimelineItem[] = [
 		],
 		icon: "material-symbols:code",
 		color: "#7C3AED",
-	},
+	},*/
 ];
 
 // Get timeline statistics
