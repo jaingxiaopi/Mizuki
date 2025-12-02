@@ -573,7 +573,7 @@ export const sidebarLayoutConfig: SidebarLayoutConfig = {
 };
 
 export const sakuraConfig: SakuraConfig = {
-	enable: false, // 默认关闭樱花特效
+	enable: true, // 默认关闭樱花特效
 	sakuraNum: 21, // 樱花数量
 	limitTimes: -1, // 樱花越界限制次数，-1为无限循环
 	size: {
@@ -607,14 +607,15 @@ export const pioConfig: import("./types/config").PioConfig = {
 	width: 280, // 默认宽度
 	height: 250, // 默认高度
 	mode: "draggable", // 默认为可拖拽模式
-	hiddenOnMobile: true, // 默认在移动设备上隐藏
+	hiddenOnMobile: false, // 默认在移动设备上隐藏
 	dialog: {
 		welcome: "Welcome to Mizuki Website!", // 欢迎词
 		touch: [
-			"What are you doing?",
-			"Stop touching me!",
-			"HENTAI!",
+			"你在干什么呀?",
+			"别碰我啦!",
+			"hentai!",
 			"Don't bully me like that!",
+			"要听听音乐吗？",
 		], // 触摸提示
 		home: "Click here to go back to homepage!", // 首页提示
 		skin: ["Want to see my new outfit?", "The new outfit looks great~"], // 换装提示
