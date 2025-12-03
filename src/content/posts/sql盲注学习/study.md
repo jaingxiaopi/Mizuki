@@ -8,14 +8,17 @@ category: 网安
 draft: false
 ---
 # 本篇文章是关于sql盲注的学习过程，主要内容如下：
--[布尔盲注](#布尔盲注)
+<a id="top"></a>
+
+- [布尔盲注](#布尔盲注)
     - [mid()函数](#mid函数)
     - [substr()函数](#substr函数)
     - [left()函数](#left函数)
     - [ord()函数](#ord函数)
--[报错盲注](#报错盲注)
-    
--[时间盲注](#时间盲注)
+
+- [报错盲注](#报错盲注)
+    - [updatexml()函数](#updatexml函数)
+- [时间盲注](#时间盲注)
 ---
 # 布尔盲注
 ## mid函数
@@ -70,4 +73,22 @@ lefrt(database(),2)>'ab' 去判断数据库名前两位。
 (3)ord(substr(database(),1,1))=65 去判断数据库名第一位的ASCII码是否为65。
 在这个里面我们可以去用ASCII码去一一对应字母，然后去判断。
 ```
+[🔝 回到顶部](#top)
+
+
 ---
+
+# 报错盲注
+## updatexml函数
+|updatexml()函数|此函数作用为更新XML文档。updatexml(column_name,xpath_expression,new_value)|
+|--- | ---   |
+|`参数`|描述|
+|`column_name`|必需，要更新的XML文档的字段名。|
+|`xpath_expression`|必需，要更新的XML文档的xpath表达式。|
+|`new_value`|必需，要更新的XML文档的新值。|
+`sql用例：`
+```sql
+(1)在我们用在报错盲注中第一个与第三个参数可以随便写，重点在第二个参数需要让它不符合XPATH格式，
+(2)在用这个函数的时候我们需要同时用到concat函数去拼接别的字符让它报错，比如 updatexml(1,concat(0x7e,database()),1)这个的结果会是 ~数据库名。
+同理，updatexml(1,concat(0x7e,(SELECT table_name FROM INFORMATION_SCHEMA.TABLES WHERE  table_schema=0xxxxxxx )),1)的结果会是 ~表名。
+同时我们还能进一步改进一下在第二个参数前加上group_concat,这样我们能得到全部的表名。
