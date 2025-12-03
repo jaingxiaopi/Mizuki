@@ -49,8 +49,8 @@ export const siteConfig: SiteConfig = {
 	// 顶栏标题配置
 	navbarTitle: {
 		// 顶栏标题文本
-		text: "MizukiUI",
-		// 顶栏标题图标路径，默认使用 public/assets/home/home.png
+		text: "Mizuki",
+		// 顶栏标题图标路径，默认使用 public/assets/home/Lucia.jpg
 		icon: "assets/home/home.png",
 	},
 
@@ -135,14 +135,14 @@ export const siteConfig: SiteConfig = {
 
 		homeText: {
 			enable: true, // 在主页显示自定义文本
-			title: "美しいミズキ", // 主页横幅主标题
+			title: "一万年太久，只争朝夕", // 主页横幅主标题
 
 			subtitle: [
-				"特別なことはないけど、君がいると十分です",
-				"今でもあなたは私の光",
-				"君ってさ、知らないうちに私の毎日になってたよ",
-				"君と話すと、なんか毎日がちょっと楽しくなるんだ",
-				"今日はなんでもない日。でも、ちょっとだけいい日",
+				"四海翻腾云水怒，五洲震荡风雷激",
+				"春来我不先开口，哪个虫儿敢作声",
+				"为有牺牲多壮志，敢教日月换新天",
+				"虎踞龙盘今胜昔，天翻地覆慨而慷",
+				"山，刺破青天锷未残，天欲堕，赖以拄其间",
 			],
 			typewriter: {
 				enable: true, // 启用副标题打字机效果
@@ -333,13 +333,13 @@ export const navBarConfig: NavBarConfig = {
 export const profileConfig: ProfileConfig = {
 	avatar: "assets\\下载.jpg", // 相对于 /src 目录。如果以 '/' 开头，则相对于 /public 目录
 	name: "江小皮",
-	bio: "The world is big, you have to go and see",
+	bio: "今日长缨在手，何时缚住苍龙？",
 	typewriter: {
 		enable: true, // 启用个人简介打字机效果
 		speed: 80, // 打字速度（毫秒）
 	},
 	links: [
-		{
+		/*{
 			name: "Bilibli",
 			icon: "fa6-brands:bilibili",
 			url: "https://space.bilibili.com/701864046",
@@ -348,13 +348,13 @@ export const profileConfig: ProfileConfig = {
 			name: "Gitee",
 			icon: "mdi:git",
 			url: "https://gitee.com/matsuzakayuki",
-		},
+		},*/
 		{
 			name: "GitHub",
 			icon: "fa6-brands:github",
 			url: "https://github.com/jaingxiaopi",
 		},
-		{
+		/*{
 			name: "Codeberg",
 			icon: "simple-icons:codeberg",
 			url: "https://codeberg.org",
@@ -363,7 +363,7 @@ export const profileConfig: ProfileConfig = {
 			name: "Discord",
 			icon: "fa6-brands:discord",
 			url: "https://discord.gg/MqW6TcQtVM",
-		},
+		},*/
 	],
 };
 
@@ -607,14 +607,14 @@ export const pioConfig: import("./types/config").PioConfig = {
 	width: 280, // 默认宽度
 	height: 250, // 默认高度
 	mode: "draggable", // 默认为可拖拽模式
-	hiddenOnMobile: false, // 默认在移动设备上隐藏
+	hiddenOnMobile: true, // 默认在移动设备上隐藏
 	dialog: {
 		welcome: "Welcome to Mizuki Website!", // 欢迎词
 		touch: [
 			"你在干什么呀?",
 			"别碰我啦!",
 			"hentai!",
-			"Don't bully me like that!",
+			"再摸我就报警啦!",
 			"要听听音乐吗？",
 		], // 触摸提示
 		home: "Click here to go back to homepage!", // 首页提示
