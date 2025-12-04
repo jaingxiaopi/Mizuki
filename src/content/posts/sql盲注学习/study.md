@@ -2,7 +2,7 @@
 title:  "sql盲注学习"
 published: 2025-12-03 
 description: "sql盲注的学习过程"
-image: ""
+image: "./fa07124e82169ceaad720d9f812c0b42.jpg"
 tags: ["sql注入","web安全","靶场"]
 category: 网安
 draft: false
@@ -73,6 +73,7 @@ lefrt(database(),2)>'ab' 去判断数据库名前两位。
 (3)ord(substr(database(),1,1))=65 去判断数据库名第一位的ASCII码是否为65。
 在这个里面我们可以去用ASCII码去一一对应字母，然后去判断。
 ```
+[ASCII码表](https://www.runoob.com/w3cnote/ascii.html)
 [🔝 回到顶部](#top)
 
 
@@ -88,7 +89,7 @@ lefrt(database(),2)>'ab' 去判断数据库名前两位。
 |`new_value`|必需，要更新的XML文档的新值。|
 `sql用例：`
 ```sql
-(1)在我们用在报错盲注中第一个与第三个参数可以随便写，重点在第二个参数需要让它不符合XPATH格式，
+(1)在我们用在报错盲注中第一个与第三个参数可以随便写，重点在第二个参数需要让它不符合XPATH格式。
 (2)在用这个函数的时候我们需要同时用到concat函数去拼接别的字符让它报错，比如 updatexml(1,concat(0x7e,database()),1)这个的结果会是 ~数据库名。
 同理，updatexml(1,concat(0x7e,(SELECT table_name FROM INFORMATION_SCHEMA.TABLES WHERE  table_schema=0xxxxxxx )),1)的结果会是 ~表名。
 同时我们还能进一步改进一下在第二个参数前加上group_concat,这样我们能得到全部的表名。
