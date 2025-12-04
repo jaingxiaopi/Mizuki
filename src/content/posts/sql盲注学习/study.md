@@ -19,6 +19,8 @@ draft: false
 - [报错盲注](#报错盲注)
     - [updatexml()函数](#updatexml函数)
 - [时间盲注](#时间盲注)
+    - [sleep()函数](#sleep函数)
+    - [if()函数](#if函数)
 ---
 # 布尔盲注
 ## mid函数
@@ -93,3 +95,32 @@ lefrt(database(),2)>'ab' 去判断数据库名前两位。
 (2)在用这个函数的时候我们需要同时用到concat函数去拼接别的字符让它报错，比如 updatexml(1,concat(0x7e,database()),1)这个的结果会是 ~数据库名。
 同理，updatexml(1,concat(0x7e,(SELECT table_name FROM INFORMATION_SCHEMA.TABLES WHERE  table_schema=0xxxxxxx )),1)的结果会是 ~表名。
 同时我们还能进一步改进一下在第二个参数前加上group_concat,这样我们能得到全部的表名。
+```
+[🔝 回到顶部](#top)
+
+# 时间盲注
+## if函数
+|if()函数|此函数作用为条件判断。if(condition,true_value,false_value)|
+|--- | ---   |
+|`参数`|描述|
+|`condition`|必需，条件表达式，如果为真则返回true_value，否则返回false_value。|
+|`true_value`|必需，条件为真时返回的值。|
+|`false_value`|必需，条件为假时返回的值。|
+`sql用例：`
+```sql
+(1)if(1=1,1,0) 结果为1。
+(2)if(1=2,1,0) 结果为0。
+(3)if(1=1,sleep(1),0) 等待1秒。
+```
+## sleep函数
+|sleep()函数|此函数作用为暂停执行指定秒数。sleep(seconds)|
+|--- | ---   |
+|`参数`|描述|
+|`seconds`|必需，要暂停的秒数。|
+`sql用例：`
+```sql
+(1)sleep(1) 等待1秒。
+(2)sleep(if(1=1,1,0)) 等待1秒。
+(3)sleep(if(1=2,1,0)) 等待0秒。
+```
+
