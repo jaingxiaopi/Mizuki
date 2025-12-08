@@ -2,7 +2,7 @@
 title:  "SQL-Labs 11关以后"
 published: 2025-12-04 
 description: "sql-labs注入11关以后的解题过程"
-image: ""
+image: "./image.png"
 tags: ["sql注入","web安全","靶场"]
 category: 网安
 draft: false
